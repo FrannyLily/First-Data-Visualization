@@ -1,0 +1,101 @@
+String monate[] = {"enero","febrero","marzo","abril","mayo","juni","julio","agosto","septiembre","octubre","noviembre","diciembre"};
+
+int chapinero[]={
+10, 30, 20, 30, 00, 10,
+00, 00, 25, 20, 30, 00
+};
+
+int semanas[]={
+10,00,00,00,20,00,
+20,00,00,00,00,30
+};
+
+int Rothaus[]={
+50,00,00,00,60,00,
+120,00,00,00,00,150,
+};  
+
+PFont glueck;
+
+void setup (){
+  
+  size(1080,650);
+  smooth();
+}
+
+void draw(){
+  background(#D3D3D1);
+  
+  glueck = loadFont("AppleSymbols-12.vlw");
+  textFont(glueck,20);
+  fill(#000203);  
+  text("2015",500,27);
+  fill(#000203);  
+  text("Scala 10:1",470,50);
+  fill(#757676);
+  text("Semanas en Alemania",800,30);
+  fill(#838383);
+text("Cantidad de Chapinero Porter",800,65);
+     fill(#A5A5A5);
+  text("Cantidad de Rothaus-Bräu",800,100);
+ 
+  for(int equis=0;equis<12;equis=equis+1){
+    noStroke();
+  
+  fill(#000203);  
+  text(monate[equis],25,45+(equis*52));
+ 
+ //Highlight Scala 
+if(mouseX < 800 && mouseY > 0){ 
+  fill(#757676);}
+if(mouseX > 800){
+  if(mouseY > 0 && mouseY <45){
+fill(#E51339);}
+else{
+fill(#838383);
+}
+}
+  rect(150,20+equis*52,semanas[equis],7);
+  text(semanas[equis],165+semanas[equis],27+(equis*52));
+    
+if(mouseX < 800 && mouseY > 0){ 
+  fill(#838383);}
+if(mouseX > 800){
+  if(mouseY > 46 && mouseY < 80){
+fill(#E51339);}
+else{
+fill(#838383);
+}
+
+}
+  rect(150,38+equis*52,chapinero[equis],7);
+  text(chapinero[equis],165+chapinero[equis],45+(equis*52));
+ 
+ if(mouseX < 800 && mouseY>106);{
+fill(#A5A5A5); }
+if(mouseX > 800 && mouseY < 105 ){
+  if(mouseY > 81){
+fill(#E51339);
+}}
+  rect(150,56+equis*52,Rothaus[equis],7);
+  text(Rothaus[equis],165+Rothaus[equis],63+(equis*52));
+}  
+
+//Beer in Mouse
+  fill(#F5F3DA);
+  rect(mouseX,mouseY-10,20,40);
+   fill(#E3DA22);
+  rect(mouseX,mouseY,20,40);
+  fill(#F2F2EB);
+  arc(mouseX+10,mouseY-10,20,5,PI,TWO_PI);
+  fill(#F5F3DA);
+  arc(mouseX+20,mouseY+15,15,30,4.7124,TWO_PI+HALF_PI);
+  fill(#D3D3D1);
+  arc(mouseX+20,mouseY+15,10,30,4.7124,TWO_PI+HALF_PI);
+  
+//lines between months
+stroke(#E8E5E5);
+for(int linie=65;linie<650;linie=linie+52){
+  line(10,linie,300,linie);
+}
+}
